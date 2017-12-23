@@ -1,0 +1,20 @@
+---
+
+openvpn_remote_addr: edda.openvpn.luzifer.io
+openvpn_remote_port: 1194
+openvpn_remote_proto: udp
+
+openvpn_config_lines:
+- client
+- nobind
+- dev tun
+
+openvpn_cert:
+  ca: |
+    INVALID
+
+  public: |
+    INVALID
+
+  private: |
+    INVALID
