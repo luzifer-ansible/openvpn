@@ -3,6 +3,7 @@
 - name: Install required package
   apt:
     name: openvpn
+    cache_valid_time: 86400
 
 - name: Install client connection
   template:
