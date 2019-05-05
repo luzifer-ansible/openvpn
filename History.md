@@ -1,3 +1,7 @@
+# 0.3.0 / 2019-05-05
+
+  * Add support for Archlinux
+
 # 0.2.0 / 2018-03-19
 
   * Use `cache_valid_time` for apt module
