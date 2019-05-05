@@ -4,6 +4,7 @@ This role installs OpenVPN on a host, configures a client connection and enables
 
 ## Requirements
 
+- Archlinux
 - Debian >= 8 (jessie)
 - Ubuntu >= 16.04 (xenial)
 

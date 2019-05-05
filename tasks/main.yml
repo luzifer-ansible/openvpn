@@ -1,23 +1,6 @@
 ---
 
-- name: Install required package
-  apt:
-    name: openvpn
-    cache_valid_time: 86400
+- name: "Loading distribution specific instructions for {{ ansible_distribution }}"
+  include: "{{ ansible_distribution }}.yml"
 
-- name: Install client connection
-  template:
-    src: templates/client.conf
-    dest: /etc/openvpn/client.conf
-  register: openvpn_config
-
-- name: Enable autostart for OpenVPN connection "client"
-  systemd:
-    name: openvpn@client.service
-    enabled: yes
-
-- name: Restart OpenVPN connection when required
-  systemd:
-    name: openvpn@client.service
-    state: restarted
-  when: openvpn_config.changed
+...

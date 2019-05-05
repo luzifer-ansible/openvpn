@@ -1,0 +1,24 @@
+---
+
+- name: Install required package
+  pacman:
+    name: openvpn
+
+- name: Install client connection
+  template:
+    src: templates/client.conf
+    dest: /etc/openvpn/client/client.conf
+  register: openvpn_config
+
+- name: Enable autostart for OpenVPN connection "client"
+  systemd:
+    name: openvpn-client@client.service
+    enabled: yes
+
+- name: Restart OpenVPN connection when required
+  systemd:
+    name: openvpn-client@client.service
+    state: restarted
+  when: openvpn_config.changed
+
+...
